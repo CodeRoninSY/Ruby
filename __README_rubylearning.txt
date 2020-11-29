@@ -30,10 +30,6 @@ https://rubyapi.org/
 8. Ruby Installers for Windows
 https://rubyinstaller.org/downloads/
 
-9. Build awesome command line apps in Ruby: (PDF)
-http://pragprog.com/titles/dccar2
-
-
 
 
 
