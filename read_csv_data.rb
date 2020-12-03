@@ -7,7 +7,7 @@
 require 'csv'
 
 if ARGV.length < 1
-  puts "Too fwe arguments"
+  puts "Too few arguments"
   puts ""
   puts "Usage: read_csv_data.rb FILE.csv"
   puts ""
