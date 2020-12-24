@@ -54,7 +54,7 @@ class Box
     puts "Box area is: #@area"
   end
 
-  protected :printArea
+  protected :printArea # protected can be called via .send
 
 end
 
@@ -79,7 +79,7 @@ a = box.getArea()
 puts "Area of the box is : #{a}"
 
 # try to call protected or methods
-box.printArea()
+box.send(:printArea)
 
 box1 = Box.new(30, 100)
 b1 = box1.getArea()
