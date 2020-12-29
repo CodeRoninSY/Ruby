@@ -14,7 +14,7 @@ require 'test/unit'
 
 # FileList inherited from Array class
 class FileList < Array
-  
+
   # lazy loading
   def initialize(pattern=nil)
     super

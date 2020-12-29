@@ -26,6 +26,8 @@ end
 
 print "Paij-ree".name_significance + "\n"
 
+print "Stro-plo".name_significance + "\n"
+
 print "Gonk-plo".dash_split
 
 
