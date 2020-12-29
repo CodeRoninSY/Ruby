@@ -53,6 +53,24 @@ puts ->() {
        ary = list.clone
        orig_list = list.clone
 
+       # bubble_sort
+       def bubble_sort(container)
+         loop do
+           swapped = false
+           (container.size - 1).times do |i|
+             if (container[i] <=> container[i + 1]) == 1
+               container[i], container[i + 1] = container[i + 1], container[i]
+               swapped = true
+             end
+           end
+           break unless swapped
+         end
+         container
+       end
+
+       array = list.clone
+       puts "\narray:#{list},\nbubble_sort(array):\n#{bubble_sort(array)}\n"
+
        # Selection sorting; from Ref[2] "Algorithms" -> p.95
        # selection_sort(ary) => O(n^2)
        def selection_sort(list)
@@ -71,7 +89,7 @@ puts ->() {
        end
 
        puts "list: #{list}"
-       puts "selection_sort[ary]= #{selection_sort(ary)}"
+       puts "selection_sort[ary]= \n#{selection_sort(ary)}\n"
 
        # insertion sort - O(n^2) complexity
        def insertion_sort(list)
@@ -91,7 +109,7 @@ puts ->() {
 
        copyl = list.clone
        # now print out the sorted array and unsorted original array uniq els count
-       puts "list:#{list}->\ninsertion_sort(copyl)= #{insertion_sort(copyl)}"
+       puts "list:#{list}->\ninsertion_sort(copyl)= #{insertion_sort(copyl)}\n"
 
        # Quick sort - divide & conquer method - O(n log n) complexity
        def quicksort(ary)
@@ -128,7 +146,7 @@ puts ->() {
 
        c = list.clone
        puts "c->clone(list): #{c}"
-       puts "quicksort(c).inspect: #{quicksort(c).inspect}"
+       puts "quicksort(c).inspect: \n#{quicksort(c).inspect}\n"
 
        # mergesort -> from 'algorithms' documentation
        def mergesort(container)
@@ -150,7 +168,7 @@ puts ->() {
 
        dupl_list = list.clone
        puts "dupl_list:#{dupl_list}"
-       puts "mergesort:#{mergesort(dupl_list)}"
+       puts "mergesort:\n#{mergesort(dupl_list)}\n"
 
        # Bucket Sort - O(n^2)
        def bucket_sort(ary, length)
@@ -235,13 +253,13 @@ puts ->() {
        f = orig_list.clone
        g = orig_list.clone
 
-       puts "C:#{c}->\ninsertion_sort:  #{Algorithms::Sort.insertion_sort(c)}"
-       puts "D:#{d}->\nmerge_sort:      #{Algorithms::Sort.mergesort(d)}"
-       puts "E:#{e}->\nquicksort:       #{Algorithms::Sort.quicksort(e)}"
-       puts "F:#{f}->\nselection_sort:  #{Algorithms::Sort.selection_sort(f)}"
-       puts "G:#{g}->\nshell_sort:      #{Algorithms::Sort.shell_sort(g)}"
+       puts "C:#{c}->\ninsertion_sort:  #{Algorithms::Sort.insertion_sort(c)}\n"
+       puts "D:#{d}->\nmerge_sort:      #{Algorithms::Sort.mergesort(d)}\n"
+       puts "E:#{e}->\nquicksort:       #{Algorithms::Sort.quicksort(e)}\n"
+       puts "F:#{f}->\nselection_sort:  #{Algorithms::Sort.selection_sort(f)}\n"
+       puts "G:#{g}->\nshell_sort:      #{Algorithms::Sort.shell_sort(g)}\n"
 
-       puts "orig_list: #{orig_list}"
+       puts "orig_list: #{orig_list}\n"
 
        # Benchmarking for sorting algorithms
        array = []
@@ -251,17 +269,18 @@ puts ->() {
        # puts "\narray: #{array}\n\n"
 
        Benchmark.bmbm do |x|
-         x.report("Algorithms::Sort.selection_sort") { Algorithms::Sort.selection_sort(array.dup) }
-         x.report("Algorithms::Sort.insertion_sort") { Algorithms::Sort.insertion_sort(array.dup) }
-         x.report("Algorithms::Sort.mergesort") { Algorithms::Sort.mergesort(array.dup) }
-         x.report("Algorithms::Sort.quicksort") { Algorithms::Sort.quicksort(array.dup) }
-         x.report("Algorithms::Sort.shell_sort") { Algorithms::Sort.shell_sort(array.dup) }
-         x.report("Algorithms::Sort.bubble_sort") { Algorithms::Sort.bubble_sort(array.dup) }
-         x.report("Algorithms::Sort.comb_sort") { Algorithms::Sort.comb_sort(array.dup) }
-         x.report("Algorithms::Sort.heapsort") { Algorithms::Sort.heapsort(array.dup) }
-         x.report("selection_sort") { selection_sort(array.dup) }
-         x.report("insertion_sort") { insertion_sort(array.dup) }
-         x.report("quicksort") { quicksort(array.dup) }
+         x.report('Algorithms::Sort.selection_sort') { Algorithms::Sort.selection_sort(array.dup) }
+         x.report('Algorithms::Sort.insertion_sort') { Algorithms::Sort.insertion_sort(array.dup) }
+         x.report('Algorithms::Sort.mergesort') { Algorithms::Sort.mergesort(array.dup) }
+         x.report('Algorithms::Sort.quicksort') { Algorithms::Sort.quicksort(array.dup) }
+         x.report('Algorithms::Sort.shell_sort') { Algorithms::Sort.shell_sort(array.dup) }
+         x.report('Algorithms::Sort.bubble_sort') { Algorithms::Sort.bubble_sort(array.dup) }
+         x.report('Algorithms::Sort.comb_sort') { Algorithms::Sort.comb_sort(array.dup) }
+         x.report('Algorithms::Sort.heapsort') { Algorithms::Sort.heapsort(array.dup) }
+         x.report('selection_sort') { selection_sort(array.dup) }
+         x.report('insertion_sort') { insertion_sort(array.dup) }
+         x.report('quicksort') { quicksort(array.dup) }
+         x.report('bubble_sort') { bubble_sort(array.dup) }
        end
 
        puts
