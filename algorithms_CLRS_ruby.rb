@@ -71,6 +71,29 @@ puts ->() {
        array = list.clone
        puts "\narray:#{list},\nbubble_sort(array):\n#{bubble_sort(array)}\n"
 
+       # comb_sort
+       def comb_sort(container)
+         container
+         gap = container.size
+         loop do
+           gap = gap * 10/13
+           gap = 11 if gap == 9 || gap == 10
+           gap = 1 if gap < 1
+           swapped = false
+           (container.size - gap).times do |i|
+             if (container[i] <=> container[i + gap]) == 1
+               container[i], container[i+gap] = container[i+gap], container[i]
+               swapped = true
+             end
+           end
+           break if !swapped && gap == 1
+         end
+         container
+       end
+
+       array = list.clone
+       puts "\narray:#{list},\ncomb_sort(array):\n#{comb_sort(array)}\n"
+
        # Selection sorting; from Ref[2] "Algorithms" -> p.95
        # selection_sort(ary) => O(n^2)
        def selection_sort(list)
@@ -88,7 +111,7 @@ puts ->() {
          list
        end
 
-       puts "list: #{list}"
+       puts "\nlist: #{list}"
        puts "selection_sort[ary]= \n#{selection_sort(ary)}\n"
 
        # insertion sort - O(n^2) complexity
