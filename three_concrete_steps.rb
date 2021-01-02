@@ -63,10 +63,10 @@
 # Start "flat-footed," don't bring in a fully-developed idea
 # Brainstorm together before typing
 # One person on the keyboard at once
-# Do something small; then swap roles and continue or restart
+# Do something small; then swap roles and continue or restart.
 #
-# Don't be afraid of doing the things over and over. Artists repeat things 
-# over and over to excel. 
+# Don't be afraid of doing the things over and over.
+# Artists repeat things over and over to excel.
 # Steal relentlessly, copy their techniques and recreate it.
 #
 
@@ -89,8 +89,7 @@ puts ->() {
          weight = kids.map { |k| k[:weight] }.sum
          speed += oomph.to_f / weight
          if speed > kids[-1][:cling]
-           puts "#{kids.size} little monkeys," +
-                ' on the merry-go-round...'
+           puts "#{kids.size} little monkeys, on the merry-go-round..."
            puts "#{kids[-1][:age]} fell off and bumped his head"
            kids.pop
            if kids.size.zero?
@@ -115,6 +114,7 @@ puts ->() {
        # MerryGoRound
        class MerryGoRound
          def initialize(kids)
+           # kids merry-go-round..
          end
        end
      }.()
